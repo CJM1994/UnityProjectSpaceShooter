@@ -21,19 +21,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CalculateMovement();
+    }
+
+    void CalculateMovement()
+    {
+        // Input
         transform.Translate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * _speed * Time.deltaTime);
 
-        if(transform.position.x > horizontalBounds || transform.position.x < -horizontalBounds)
+        // Bounds
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, verticalBoundsDown, verticalBoundsUp), 0);
+        if (transform.position.x > horizontalBounds || transform.position.x < -horizontalBounds)
         {
             transform.position = new Vector3(-transform.position.x, transform.position.y, transform.position.z);
-        }
-        if(transform.position.y >= verticalBoundsUp)
-        {
-            transform.position = new Vector3(transform.position.x, verticalBoundsUp, transform.position.z);
-        }
-        if (transform.position.y <= verticalBoundsDown)
-        {
-            transform.position = new Vector3(transform.position.x, verticalBoundsDown, transform.position.z);
         }
     }
 }
