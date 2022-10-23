@@ -238,6 +238,7 @@ MonoBehaviour:
   _verticalBoundsUp: -2
   _verticalBoundsDown: -4.5
   _fireRate: 0.5
+  _lives: 3
   _laserPrefab: {fileID: 4964081131214757294, guid: d2060da4284a646c980da9564ce69d2b, type: 3}
 --- !u!1 &705507993
 GameObject:

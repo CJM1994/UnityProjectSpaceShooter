@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
-        if(transform.position.y < -7f)
+        if (transform.position.y < -7f)
         {
             transform.position = new Vector3(Random.Range(-8f, 8f), 7, 0);
         }
@@ -20,11 +20,15 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             Destroy(this.gameObject);
+
+            Player player = other.transform.GetComponent<Player>();
+            if (player != null)
+                other.transform.GetComponent<Player>().Damage();
         }
-        if(other.tag == "Laser")
+        if (other.tag == "Laser")
         {
             Destroy(other.gameObject);
             Destroy(this.gameObject);

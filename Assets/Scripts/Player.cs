@@ -7,14 +7,19 @@ public class Player : MonoBehaviour
     // Movement
     [SerializeField]
     private float _speed = 3.5f;
-    private float horizontalBounds = 11.3f;
+
     [SerializeField]
     private float _verticalBoundsUp = -2.0f;
     [SerializeField]
     private float _verticalBoundsDown = -4.5f;
+    private float horizontalBounds = 11.3f;
+
     [SerializeField]
     private float _fireRate = 0.5f;
     private float lastFireTime;
+
+    [SerializeField]
+    private int _lives = 3;
 
     // Firing
     [SerializeField]
@@ -58,4 +63,13 @@ public class Player : MonoBehaviour
         Instantiate(_laserPrefab, laserStartPosition, Quaternion.identity);
     }
 
+    public void Damage()
+    {
+        _lives -= 1;
+
+        if(_lives < 1)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
