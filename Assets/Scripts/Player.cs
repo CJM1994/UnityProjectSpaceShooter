@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     private float _speed = 3.5f;
     private float horizontalBounds = 11.3f;
     [SerializeField]
-    private float verticalBoundsUp = -2;
+    private float verticalBoundsUp = -2.0f;
     [SerializeField]
     private float verticalBoundsDown = -4.5f;
 
@@ -30,7 +30,8 @@ public class Player : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+            Vector3 laserStartPosition = new Vector3(transform.position.x, transform.position.y + 1.2f, transform.position.z);
+            Instantiate(_laserPrefab, laserStartPosition, Quaternion.identity);
         }
     }
 
