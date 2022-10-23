@@ -22,11 +22,14 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Destroy(this.gameObject);
-
             Player player = other.transform.GetComponent<Player>();
+
             if (player != null)
+            {
                 other.transform.GetComponent<Player>().Damage();
+            }
+
+            Destroy(this.gameObject);
         }
         if (other.tag == "Laser")
         {

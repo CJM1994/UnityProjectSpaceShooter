@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private float _fireRate = 0.5f;
-    private float lastFireTime;
+    private float nextFireTime;
 
     [SerializeField]
     private int _lives = 3;
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     {
         CalculateMovement();
 
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastFireTime)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFireTime)
         {
             FireLaser();
         }
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     void FireLaser()
     {
 
-        lastFireTime = Time.time + _fireRate;
+        nextFireTime = Time.time + _fireRate;
         Vector3 laserStartPosition = new Vector3(transform.position.x, transform.position.y + 1.2f, transform.position.z);
         Instantiate(_laserPrefab, laserStartPosition, Quaternion.identity);
     }
