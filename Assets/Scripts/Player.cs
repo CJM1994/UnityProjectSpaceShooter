@@ -9,9 +9,12 @@ public class Player : MonoBehaviour
     private float _speed = 3.5f;
     private float horizontalBounds = 11.3f;
     [SerializeField]
-    private float verticalBoundsUp = -2.0f;
+    private float _verticalBoundsUp = -2.0f;
     [SerializeField]
-    private float verticalBoundsDown = -4.5f;
+    private float _verticalBoundsDown = -4.5f;
+    [SerializeField]
+    private float _fireRate = 0.5f;
+    private float nextFire;
 
     // Firing
     [SerializeField]
@@ -28,8 +31,9 @@ public class Player : MonoBehaviour
     {
         CalculateMovement();
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
         {
+            nextFire = Time.time + _fireRate;
             Vector3 laserStartPosition = new Vector3(transform.position.x, transform.position.y + 1.2f, transform.position.z);
             Instantiate(_laserPrefab, laserStartPosition, Quaternion.identity);
         }
@@ -41,7 +45,7 @@ public class Player : MonoBehaviour
         transform.Translate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * _speed * Time.deltaTime);
 
         // Bounds
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, verticalBoundsDown, verticalBoundsUp), 0);
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, _verticalBoundsDown, _verticalBoundsUp), 0);
         if (transform.position.x > horizontalBounds || transform.position.x < -horizontalBounds)
         {
             transform.position = new Vector3(-transform.position.x, transform.position.y, transform.position.z);
