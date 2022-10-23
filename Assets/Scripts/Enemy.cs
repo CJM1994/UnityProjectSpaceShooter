@@ -5,16 +5,28 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = -4;
+    private float _speed = 4f;
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(transform.up * _speed * Time.deltaTime);
+        transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
-        if(transform.position.y < -7.0f)
+        if(transform.position.y < -7f)
         {
             transform.position = new Vector3(Random.Range(-8f, 8f), 7, 0);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.transform.name == "Player")
+        {
+            Destroy(other.gameObject);
+        }
+        if(other.transform.name == "Laser(Clone)")
+        {
+            Destroy(this.gameObject);
         }
     }
 }
