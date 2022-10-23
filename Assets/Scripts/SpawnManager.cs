@@ -7,18 +7,13 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private float _spawnRate = 5;
     [SerializeField]
-    private GameObject enemy;
+    private GameObject _enemy;
+    [SerializeField]
+    private GameObject _enemyContainer;
 
-    // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("SpawnRoutine");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        StartCoroutine(SpawnRoutine());
     }
 
     IEnumerator SpawnRoutine()
@@ -26,7 +21,7 @@ public class SpawnManager : MonoBehaviour
         while (true)
         {
             Vector3 spawnPosition = new Vector3(Random.Range(-8f, 8f), 7f, 0);
-            Instantiate(enemy, spawnPosition, Quaternion.identity);
+            Instantiate(_enemy, spawnPosition, Quaternion.identity, _enemyContainer.transform);
             yield return new WaitForSeconds(_spawnRate);
         }
     }
