@@ -20,12 +20,13 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.transform.name == "Player")
+        if(other.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
+        if(other.tag == "Laser")
         {
             Destroy(other.gameObject);
-        }
-        if(other.transform.name == "Laser(Clone)")
-        {
             Destroy(this.gameObject);
         }
     }

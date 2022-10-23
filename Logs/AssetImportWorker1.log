@@ -7503,3 +7503,79 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002204 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/connormullin/Unity Projects/Space Shooter/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image /Users/connormullin/Unity Projects/Space Shooter/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Native extension for iOS target not found
+2022-10-23 13:28:18.520 Unity[65442:2942422] [XcodeApplications] Failed to read NSDictionary from path Ќ/Contents/Info.plist
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.61 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.947 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2949ms)
+		BeginReloadAssembly (324ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (47ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (74ms)
+		EndReloadAssembly (2355ms)
+			LoadAssemblies (134ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (354ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (1573ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (113ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (139ms)
+				ProcessInitializeOnLoadAttributes (1159ms)
+				ProcessInitializeOnLoadMethodAttributes (158ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (15ms)
+Platform modules already initialized, skipping
+Callback registration failed. Increase kMaxCallback.
+Fatal Error! Callback registration failed. Increase kMaxCallback.
+Obtained 31 stack frames.
+#0  0x007ff80177300e in __pthread_kill
+#1  0x007ff8016f4d24 in abort
+#2  0x000001053da9fe in CrashDontLaunchBugReporter()
+#3  0x00000103ff8c5e in EditorMonoConsole::LogToConsoleImplementation(CppLogEntry&)
+#4  0x00000103ff8266 in EditorMonoConsole::LogToConsoleImplementation(DebugStringToFileData const&)
+#5  0x00000103ff987e in LogToConsoleImplementation(DebugStringToFileData const&)
+#6  0x00000104db9a88 in DebugStringToFilePostprocessedStacktrace(DebugStringToFileData const&)
+#7  0x00000104dba280 in DebugStringToFile(DebugStringToFileData const&)
+#8  0x000001039a59c7 in CallbackArrayBase<void (*)(BuildTargetPlatform), void (*)(void const*, BuildTargetPlatform)>::Register(void (*)(BuildTargetPlatform), void (*)(void const*, BuildTargetPlatform), void const*)
+#9  0x000001040db552 in LoadDomainAndUserAssemblies()
+#10 0x000001040dd6a0 in LoadUserAssemblies()
+#11 0x000001049dcf83 in AssetImportWorkerClient::ReloadMonoDomain(AssetResolver&)
+#12 0x000001049ed723 in invocation function for block in AssetImportWorkerClient::HandleMessage(PrepareMessage const&)::$_4::operator()() const
+#13 0x007ff8015f2317 in _dispatch_client_callout
+#14 0x007ff8015ff8ad in _dispatch_async_and_wait_invoke
+#15 0x007ff8015f2317 in _dispatch_client_callout
+#16 0x007ff8015fec78 in _dispatch_main_queue_drain
+#17 0x007ff8015fe8bb in _dispatch_main_queue_callback_4CF
+#18 0x007ff8018accba in __CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__
+#19 0x007ff80186e1ab in __CFRunLoopRun
+#20 0x007ff80186d014 in CFRunLoopRunSpecific
+#21 0x007ff80a9815e6 in RunCurrentEventLoopInMode
+#22 0x007ff80a98134a in ReceiveNextEventCommon
+#23 0x007ff80a9810e5 in _BlockUntilNextEventMatchingListInModeWithFilter
+#24 0x007ff8041e31fd in _DPSNextEvent
+#25 0x007ff8041e18ba in -[NSApplication(NSEvent) _nextEventMatchingEventMask:untilDate:inMode:dequeue:]
+#26 0x007ff8041d3f69 in -[NSApplication run]
+#27 0x007ff8041a7ee7 in NSApplicationMain
+#28 0x000001053eb525 in EditorMain(int, char const**)
+#29 0x000001053eb849 in main
+#30 0x00000208ba751e in (Unknown)
