@@ -21,6 +21,8 @@ public class TripleLaserPowerup : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            Player player = collision.transform.GetComponent<Player>();
+            player.ActivateTripleLaser();
             Destroy(this.gameObject);
         }
     }
