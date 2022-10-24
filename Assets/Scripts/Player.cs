@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     private GameObject _laserPrefab;
     [SerializeField]
     private GameObject _tripleLaserPrefab;
-    public bool isTripleLaser = true;
+    private bool isTripleLaserActive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
     {
         nextFireTime = Time.time + _fireRate;
 
-        if (isTripleLaser)
+        if (isTripleLaserActive)
         {
             Vector3 laserStartPosition = new Vector3(transform.position.x - 0.45f, transform.position.y, transform.position.z);
             Instantiate(_tripleLaserPrefab, laserStartPosition, Quaternion.identity);
