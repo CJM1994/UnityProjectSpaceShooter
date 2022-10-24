@@ -18,19 +18,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.tag == "Player")
+        if (collision.tag == "Player")
         {
-            Player player = other.transform.GetComponent<Player>();
+            Player player = collision.transform.GetComponent<Player>();
             if (player == null) Debug.Log("Player is null");
-            other.transform.GetComponent<Player>().Damage();
+            collision.transform.GetComponent<Player>().Damage();
 
             Destroy(this.gameObject);
         }
-        if (other.tag == "Laser")
+        if (collision.tag == "Laser")
         {
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
     }
