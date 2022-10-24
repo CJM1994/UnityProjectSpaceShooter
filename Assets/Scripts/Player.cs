@@ -30,7 +30,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(0, -4, 0);
+
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
+        if (_spawnManager == null) Debug.Log("Spawn Manager is null");
     }
 
     // Update is called once per frame
@@ -71,12 +73,7 @@ public class Player : MonoBehaviour
 
         if (_lives < 1)
         {
-            if (_spawnManager != null)
-            {
-                _spawnManager.OnPlayerDeath();
-            }
-            else Debug.Log("Spawn Manager is null");
-
+            _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
         }
     }

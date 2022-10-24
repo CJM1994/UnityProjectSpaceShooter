@@ -23,12 +23,8 @@ public class Enemy : MonoBehaviour
         if (other.tag == "Player")
         {
             Player player = other.transform.GetComponent<Player>();
-
-            if (player != null)
-            {
-                other.transform.GetComponent<Player>().Damage();
-            }
-            else Debug.Log("Player is null");
+            if (player == null) Debug.Log("Player is null");
+            other.transform.GetComponent<Player>().Damage();
 
             Destroy(this.gameObject);
         }
