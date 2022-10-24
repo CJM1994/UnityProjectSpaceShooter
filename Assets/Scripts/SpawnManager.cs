@@ -10,19 +10,34 @@ public class SpawnManager : MonoBehaviour
     private GameObject _enemy;
     [SerializeField]
     private GameObject _enemyContainer;
+    [SerializeField]
+    private GameObject _tripleShotPowerup;
+    [SerializeField]
+    private GameObject _powerupContainer;
 
     void Start()
     {
-        StartCoroutine(SpawnRoutine());
+        StartCoroutine(SpawnEnemyRoutine());
+        StartCoroutine(SpawnPowerupRoutine());
     }
 
-    IEnumerator SpawnRoutine()
+    IEnumerator SpawnEnemyRoutine()
     {
         while (true)
         {
             Vector3 spawnPosition = new Vector3(Random.Range(-8f, 8f), 7f, 0);
             Instantiate(_enemy, spawnPosition, Quaternion.identity, _enemyContainer.transform);
             yield return new WaitForSeconds(_spawnRate);
+        }
+    }
+
+    IEnumerator SpawnPowerupRoutine()
+    {
+        while (true)
+        {
+            Vector3 spawnPosition = new Vector3(Random.Range(-8f, 8f), 7f, 0);
+            Instantiate(_tripleShotPowerup, spawnPosition, Quaternion.identity, _powerupContainer.transform);
+            yield return new WaitForSeconds(10);
         }
     }
 
