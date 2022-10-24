@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
             {
                 other.transform.GetComponent<Player>().Damage();
             }
+            else Debug.Log("Player is null");
 
             Destroy(this.gameObject);
         }

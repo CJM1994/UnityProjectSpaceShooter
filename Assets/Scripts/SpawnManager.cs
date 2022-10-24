@@ -25,4 +25,9 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(_spawnRate);
         }
     }
+
+    public void OnPlayerDeath()
+    {
+        Destroy(this.gameObject);
+    }
 }
