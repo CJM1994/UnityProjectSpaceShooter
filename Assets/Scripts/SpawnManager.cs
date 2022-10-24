@@ -37,7 +37,7 @@ public class SpawnManager : MonoBehaviour
         {
             Vector3 spawnPosition = new Vector3(Random.Range(-8f, 8f), 7f, 0);
             Instantiate(_tripleShotPowerup, spawnPosition, Quaternion.identity, _powerupContainer.transform);
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(Random.Range(8, 16));
         }
     }
 

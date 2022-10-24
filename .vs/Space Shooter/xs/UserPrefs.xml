@@ -2,16 +2,22 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SpawnManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="11" Column="6" />
+      <File FileName="Assets/Scripts/Player.cs" Line="99" Column="38" />
+      <File FileName="Assets/Scripts/Laser.cs" Line="10" Column="1" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="10" Column="1" />
+      <File FileName="Assets/Scripts/TripleLaserPowerup.cs" Line="30" Column="1" />
+      <File FileName="Assets/Scripts/SpawnManager.cs" Line="41" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Space Shooter" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="SpawnManager.cs" selected="True" />
+              </Node>
             </Node>
             <Node name="Packages" expanded="True" />
           </Node>
