@@ -39,6 +39,10 @@ public class Powerup : MonoBehaviour
                 case "ShieldPowerup":
                     // Todo: Add public void for shield powerup
                     break;
+
+                default:
+                    Debug.Log("_powerupName not found");
+                    break;
             }
 
             Destroy(this.gameObject);

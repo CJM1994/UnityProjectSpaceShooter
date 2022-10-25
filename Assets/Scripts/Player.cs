@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 3.5f;
+    [SerializeField]
+    private float _speedPowerupModifier = 2.0f;
 
     [SerializeField]
     private float _verticalBoundsUp = -2.0f;
@@ -51,17 +53,8 @@ public class Player : MonoBehaviour
 
     void CalculateMovement()
     {
-        // Input
-        if (_isSpeedActive)
-        {
-            transform.Translate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * _speed * 2 * Time.deltaTime);
-        }
-        else
-        {
-            transform.Translate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * _speed * Time.deltaTime);
-        }
+        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * _speed * Time.deltaTime);
 
-        // Bounds
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, _verticalBoundsDown, _verticalBoundsUp), 0);
         if (transform.position.x > horizontalBounds || transform.position.x < -horizontalBounds)
         {
@@ -100,6 +93,7 @@ public class Player : MonoBehaviour
     public void ActivateSpeedPowerup()
     {
         _isSpeedActive = true;
+        _speed *= _speedPowerupModifier;
         StartCoroutine(DeactivateSpeed());
     }
 
@@ -107,6 +101,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         _isSpeedActive = false;
+        _speed /= _speedPowerupModifier;
     }
 
     public void Damage()

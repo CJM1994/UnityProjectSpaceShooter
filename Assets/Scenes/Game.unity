@@ -479,7 +479,9 @@ MonoBehaviour:
   _spawnRate: 3
   _enemy: {fileID: 3870345198233203999, guid: 0878447ceb41342ea9fb43e7ec2875d8, type: 3}
   _enemyContainer: {fileID: 126515599}
-  _tripleShotPowerup: {fileID: 7398149280945727153, guid: 4e6acb79852514632ae7ce890ca01f55, type: 3}
+  _powerups:
+  - {fileID: 6150276824464699879, guid: c9001d03b424141a5b02f7870a561f21, type: 3}
+  - {fileID: 7398149280945727153, guid: 4e6acb79852514632ae7ce890ca01f55, type: 3}
   _powerupContainer: {fileID: 1261272344}
 --- !u!4 &1500528362
 Transform:
@@ -530,6 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  _speedPowerupModifier: 2
   _verticalBoundsUp: -2
   _verticalBoundsDown: -4.5
   _fireRate: 0.5
