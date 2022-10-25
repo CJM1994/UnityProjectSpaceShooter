@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 
     private bool _isTripleLaserActive = false;
     //private bool _isSpeedActive = false;
+    private bool _isShieldActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -106,18 +107,19 @@ public class Player : MonoBehaviour
 
     public void ActivateShield()
     {
-        Debug.Log("Shield picked up");
-        StartCoroutine(DeactivateShield());
-    }
-
-    IEnumerator DeactivateShield()
-    {
-        yield return new WaitForSeconds(5);
+        _isShieldActive = true;
     }
 
     public void Damage()
     {
-        _lives -= 1;
+        if (_isShieldActive)
+        {
+            _isShieldActive = false;
+        }
+        else
+        {
+            _lives -= 1;
+        }
 
         if (_lives < 1)
         {
