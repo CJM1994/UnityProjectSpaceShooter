@@ -23,15 +23,18 @@ public class Powerup : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            Player player = collision.transform.GetComponent<Player>();
+            if (player == null) Debug.Log("Player is null");
+
             if (_powerupName == "TripleLaserPowerup")
             {
-                Player player = collision.transform.GetComponent<Player>();
                 player.ActivateTripleShotPowerup();
                 Destroy(this.gameObject);
             }
             else if (_powerupName == "SpeedPowerup")
             {
-                Debug.Log("Picked up speed powerup");
+                player.ActivateSpeedPowerup();
+                Destroy(this.gameObject);
             }
         }
     }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Movement
     [SerializeField]
     private float _speed = 3.5f;
 
@@ -26,7 +25,9 @@ public class Player : MonoBehaviour
     private GameObject _laserPrefab;
     [SerializeField]
     private GameObject _tripleLaserPrefab;
+
     private bool _isTripleLaserActive = false;
+    private bool _isSpeedActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,14 @@ public class Player : MonoBehaviour
     void CalculateMovement()
     {
         // Input
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * _speed * Time.deltaTime);
+        if (_isSpeedActive)
+        {
+            transform.Translate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * _speed * 2 * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * _speed * Time.deltaTime);
+        }
 
         // Bounds
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, _verticalBoundsDown, _verticalBoundsUp), 0);
@@ -87,6 +95,18 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         _isTripleLaserActive = false;
+    }
+
+    public void ActivateSpeedPowerup()
+    {
+        _isSpeedActive = true;
+        StartCoroutine(DeactivateSpeed());
+    }
+
+    IEnumerator DeactivateSpeed()
+    {
+        yield return new WaitForSeconds(5);
+        _isSpeedActive = false;
     }
 
     public void Damage()
