@@ -26,16 +26,22 @@ public class Powerup : MonoBehaviour
             Player player = collision.transform.GetComponent<Player>();
             if (player == null) Debug.Log("Player is null");
 
-            if (_powerupName == "TripleLaserPowerup")
+            switch (_powerupName)
             {
-                player.ActivateTripleShotPowerup();
-                Destroy(this.gameObject);
+                case "TripleLaserPowerup":
+                    player.ActivateTripleShotPowerup();
+                    break;
+
+                case "SpeedPowerup":
+                    player.ActivateSpeedPowerup();
+                    break;
+
+                case "ShieldPowerup":
+                    // Todo: Add public void for shield powerup
+                    break;
             }
-            else if (_powerupName == "SpeedPowerup")
-            {
-                player.ActivateSpeedPowerup();
-                Destroy(this.gameObject);
-            }
+
+            Destroy(this.gameObject);
         }
     }
 }
