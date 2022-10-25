@@ -29,15 +29,15 @@ public class Powerup : MonoBehaviour
             switch (_powerupName)
             {
                 case "TripleLaserPowerup":
-                    player.ActivateTripleShotPowerup();
+                    player.ActivateTripleLaser();
                     break;
 
                 case "SpeedPowerup":
-                    player.ActivateSpeedPowerup();
+                    player.ActivateSpeed();
                     break;
 
                 case "ShieldPowerup":
-                    // Todo: Add public void for shield powerup
+                    player.ActivateShield();
                     break;
 
                 default:

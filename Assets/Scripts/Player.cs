@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     private GameObject _tripleLaserPrefab;
 
     private bool _isTripleLaserActive = false;
-    private bool _isSpeedActive = false;
+    //private bool _isSpeedActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void ActivateTripleShotPowerup()
+    public void ActivateTripleLaser()
     {
         _isTripleLaserActive = true;
         StartCoroutine(DeactivateTripleLaser());
@@ -90,9 +90,9 @@ public class Player : MonoBehaviour
         _isTripleLaserActive = false;
     }
 
-    public void ActivateSpeedPowerup()
+    public void ActivateSpeed()
     {
-        _isSpeedActive = true;
+        //_isSpeedActive = true;
         _speed *= _speedPowerupModifier;
         StartCoroutine(DeactivateSpeed());
     }
@@ -100,8 +100,19 @@ public class Player : MonoBehaviour
     IEnumerator DeactivateSpeed()
     {
         yield return new WaitForSeconds(5);
-        _isSpeedActive = false;
+        //_isSpeedActive = false;
         _speed /= _speedPowerupModifier;
+    }
+
+    public void ActivateShield()
+    {
+        Debug.Log("Shield picked up");
+        StartCoroutine(DeactivateShield());
+    }
+
+    IEnumerator DeactivateShield()
+    {
+        yield return new WaitForSeconds(5);
     }
 
     public void Damage()
