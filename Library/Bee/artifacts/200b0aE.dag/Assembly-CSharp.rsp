@@ -356,8 +356,8 @@
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/Laser.cs"
 "Assets/Scripts/Player.cs"
+"Assets/Scripts/Powerup.cs"
 "Assets/Scripts/SpawnManager.cs"
-"Assets/Scripts/TripleLaserPowerup.cs"
 -langversion:9.0
 
 /deterministic

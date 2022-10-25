@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void ActivateTripleLaser()
+    public void ActivateTripleShotPowerup()
     {
         _isTripleLaserActive = true;
         StartCoroutine(DeactivateTripleLaser());
