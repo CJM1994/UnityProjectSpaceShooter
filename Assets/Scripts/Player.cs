@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     private float nextFireTime;
 
     [SerializeField]
+    private int _score;
+    private UIManager _uiManager;
+    [SerializeField]
     private int _lives = 3;
     private SpawnManager _spawnManager;
 
@@ -40,7 +43,7 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(0, -4, 0);
 
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
-        if (_spawnManager == null) Debug.Log("Spawn Manager is null");
+        _uiManager = GameObject.Find("UIManager").transform.GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -129,5 +132,11 @@ public class Player : MonoBehaviour
             _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
         }
+    }
+
+    public void AddScore()
+    {
+        _score += 10;
+        _uiManager.UpdateScore(_score);
     }
 }
