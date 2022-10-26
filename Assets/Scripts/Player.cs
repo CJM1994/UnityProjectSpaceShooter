@@ -126,6 +126,7 @@ public class Player : MonoBehaviour
         }
 
         _lives -= 1;
+        _uiManager.UpdateLives(_lives);
 
         if (_lives < 1)
         {
@@ -134,9 +135,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void AddScore()
+    public void AddScore(int points)
     {
-        _score += 10;
+        _score += points;
         _uiManager.UpdateScore(_score);
     }
 }

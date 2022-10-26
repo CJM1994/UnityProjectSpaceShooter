@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
         }
         if (collision.tag == "Laser")
         {
-            if (_player != null) _player.AddScore();
+            if (_player != null) _player.AddScore(10);
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
