@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     private float nextFireTime;
 
     [SerializeField]
-    private int _score;
+    private int _score = 0;
     private UIManager _uiManager;
     [SerializeField]
     private int _lives = 3;
@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(0, -4, 0);
 
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
-        _uiManager = GameObject.Find("UIManager").transform.GetComponent<UIManager>();
+        _uiManager = GameObject.Find("Canvas").transform.GetComponent<UIManager>();
     }
 
     // Update is called once per frame
