@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _lives = 3;
     private SpawnManager _spawnManager;
+    private GameManager _gameManager;
 
     [SerializeField]
     private GameObject _laserPrefab;
@@ -42,8 +43,9 @@ public class Player : MonoBehaviour
     {
         transform.position = new Vector3(0, -4, 0);
 
+        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
-        _uiManager = GameObject.Find("Canvas").transform.GetComponent<UIManager>();
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -131,6 +133,7 @@ public class Player : MonoBehaviour
         if (_lives < 1)
         {
             _spawnManager.OnPlayerDeath();
+            _gameManager.GameOver();
             Destroy(this.gameObject);
         }
     }
