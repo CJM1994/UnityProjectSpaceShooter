@@ -1,15 +1,7 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupConfiguration="{28FCF307-BCEB-DF00-C466-08C29A16E02D}|">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a9547771-81d1-4aeb-b09c-06db5488eebe" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UIManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Main Menu/MainMenu.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="129" Column="40" />
-      <File FileName="Assets/Scripts/Laser.cs" Line="10" Column="1" />
-      <File FileName="Assets/Scripts/Enemy.cs" Line="36" Column="43" />
-      <File FileName="Assets/Scripts/SpawnManager.cs" Line="41" Column="66" />
-      <File FileName="Assets/Scripts/Powerup.cs" Line="20" Column="6" />
-      <File FileName="Assets/Scripts/UIManager.cs" Line="37" Column="1" />
+      <File FileName="Assets/Scripts/Main Menu/MainMenu.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,7 +9,9 @@
           <Node name="Space Shooter" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="UIManager.cs" selected="True" />
+                <Node name="Main Menu" expanded="True">
+                  <Node name="MainMenu.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
             <Node name="Packages" expanded="True" />
@@ -27,15 +21,13 @@
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State />
       </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="Unity" selected="True" />
-        </State>
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f37407e2-db73-4643-9177-4e6e1447477c" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
 </Properties>
