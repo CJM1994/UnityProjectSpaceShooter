@@ -7,10 +7,14 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float _speed = 4f;
     private Player _player;
+    private Animator _animator;
+    private BoxCollider2D _boxCollider2D;
 
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _animator = gameObject.GetComponent<Animator>();
+        _boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -25,16 +29,22 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             if (_player != null) _player.Damage();
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 2.8f);
+            _speed = 0;
+            _animator.SetTrigger("EnemyDeath");
+            Destroy(_boxCollider2D);
         }
-        if (collision.tag == "Laser")
+        if (collision.CompareTag("Laser"))
         {
             if (_player != null) _player.AddScore(10);
             Destroy(collision.gameObject);
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 2.8f);
+            _speed = 0;
+            _animator.SetTrigger("EnemyDeath");
+            Destroy(_boxCollider2D);
         }
     }
 }
