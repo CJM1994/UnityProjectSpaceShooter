@@ -32,19 +32,21 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             if (_player != null) _player.Damage();
-            Destroy(this.gameObject, 2.8f);
-            _speed = 0;
-            _animator.SetTrigger("EnemyDeath");
-            Destroy(_boxCollider2D);
+            handleEnemyDeath();
         }
         if (collision.CompareTag("Laser"))
         {
             if (_player != null) _player.AddScore(10);
             Destroy(collision.gameObject);
-            Destroy(this.gameObject, 2.8f);
-            _speed = 0;
-            _animator.SetTrigger("EnemyDeath");
-            Destroy(_boxCollider2D);
+            handleEnemyDeath();
         }
+    }
+
+    void handleEnemyDeath()
+    {
+        Destroy(this.gameObject, 2.8f);
+        _speed = 0;
+        _animator.SetTrigger("EnemyDeath");
+        Destroy(_boxCollider2D);
     }
 }
