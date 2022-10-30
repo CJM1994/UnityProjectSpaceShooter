@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6632711261175738307
 Transform:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7834241119130495227
 Transform:
   m_ObjectHideFlags: 0
@@ -427,6 +427,9 @@ MonoBehaviour:
   _laserPrefab: {fileID: 4964081131214757294, guid: d2060da4284a646c980da9564ce69d2b, type: 3}
   _tripleLaserPrefab: {fileID: 4983489889239691527, guid: 582bdbb65642c4d49bbb6a446c5b5cb2, type: 3}
   _shieldVisualizer: {fileID: 5128218628204754916}
+  _engines:
+  - {fileID: 1617886349093927947}
+  - {fileID: 2869290162975798898}
 --- !u!61 &5128218628345786160
 BoxCollider2D:
   m_ObjectHideFlags: 0
