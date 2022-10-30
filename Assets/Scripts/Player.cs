@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private float _verticalBoundsUp = -2.0f;
     [SerializeField]
     private float _verticalBoundsDown = -4.5f;
-    private float horizontalBounds = 11.3f;
+    private readonly float _horizontalBounds = 11.3f;
 
     [SerializeField]
     private float _fireRate = 0.5f;
@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     private GameObject _tripleLaserPrefab;
     [SerializeField]
     private GameObject _shieldVisualizer;
+    [SerializeField]
+    private GameObject[] _engines;
 
     private bool _isTripleLaserActive = false;
     //private bool _isSpeedActive = false;
@@ -64,7 +66,7 @@ public class Player : MonoBehaviour
         transform.Translate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * _speed * Time.deltaTime);
 
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, _verticalBoundsDown, _verticalBoundsUp), 0);
-        if (transform.position.x > horizontalBounds || transform.position.x < -horizontalBounds)
+        if (transform.position.x > _horizontalBounds || transform.position.x < -_horizontalBounds)
         {
             transform.position = new Vector3(-transform.position.x, transform.position.y, transform.position.z);
         }
@@ -129,6 +131,7 @@ public class Player : MonoBehaviour
 
         _lives -= 1;
         _uiManager.UpdateLives(_lives);
+        addEngineDamage();
 
         if (_lives < 1)
         {
@@ -136,6 +139,23 @@ public class Player : MonoBehaviour
             _gameManager.GameOver();
             Destroy(this.gameObject);
         }
+    }
+
+    void addEngineDamage()
+    {
+        if (_engines[0].activeSelf == true)
+        {
+            _engines[1].SetActive(true);
+            return;
+        }
+        if (_engines[1].activeSelf == true)
+        {
+            _engines[0].SetActive(true);
+            return;
+        }
+
+        int whichEngine = Random.Range(0, 2);
+        _engines[whichEngine].SetActive(true);
     }
 
     public void AddScore(int points)
