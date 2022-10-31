@@ -8,6 +8,8 @@ public class Powerup : MonoBehaviour
     private float _speed = 3.0f;
     [SerializeField]
     private string _powerupName;
+    [SerializeField]
+    private AudioClip _powerupSound;
 
     void Update()
     {
@@ -45,6 +47,7 @@ public class Powerup : MonoBehaviour
                     break;
             }
 
+            AudioSource.PlayClipAtPoint(_powerupSound, new Vector3(0, 0, -10));
             Destroy(this.gameObject);
         }
     }
