@@ -27,18 +27,20 @@ public class Asteroid : MonoBehaviour
     {
         if (collision.CompareTag("Laser"))
         {
-            GameObject explosionAnimation = Instantiate(_explosion, transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
-            Destroy(explosionAnimation, 3f);
-            Destroy(this.gameObject);
+            handleAsteroidDeath();
         }
         if (collision.CompareTag("Player"))
         {
             _player.Damage();
-            GameObject explosionAnimation = Instantiate(_explosion, transform.position, Quaternion.identity);
-            Destroy(explosionAnimation, 3f);
-            Destroy(this.gameObject);
+            handleAsteroidDeath();
         }
         _spawnManager.StartSpawning();
+    }
+
+    void handleAsteroidDeath()
+    {
+        Instantiate(_explosion, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }

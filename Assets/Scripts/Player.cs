@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     private GameObject _laserPrefab;
     [SerializeField]
     private GameObject _tripleLaserPrefab;
+    private AudioSource _laserSound;
     [SerializeField]
     private GameObject _shieldVisualizer;
     [SerializeField]
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
         _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+        _laserSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -86,6 +88,8 @@ public class Player : MonoBehaviour
             Vector3 laserStartPosition = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
             Instantiate(_laserPrefab, laserStartPosition, Quaternion.identity);
         }
+
+        _laserSound.Play();
     }
 
     public void ActivateTripleLaser()
